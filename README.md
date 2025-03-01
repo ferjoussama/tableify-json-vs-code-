@@ -37,6 +37,7 @@
     },
     "hobbies": ["Reading", "Hiking", "Coding"]
 }
+```
 
 ## License
 
