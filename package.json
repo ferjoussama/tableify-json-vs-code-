@@ -1,0 +1,70 @@
+{
+  "name": "tableify-json",
+  "displayName": "Tableify JSON",
+  "description": "Convert your JSON data into an easy-to-read table format within Visual Studio Code. This extension allows you to visualize JSON objects and arrays as tables, making it easier to analyze and manage your data. Simply trigger the command to display your JSON in a clean and organized table layout, enhancing your development workflow.",
+  "publisher": "oussamaferjani",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.90.0"
+  },
+  "categories": [
+    "Programming Languages",
+    "Formatters",
+    "Visualization",
+    "Other"
+  ],
+  "activationEvents": [],
+  "main": "./dist/extension.js",
+  "icon": "logo.png",  
+  "contributes": {
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "tableify-json-sidebar",
+          "title": "Tableify JSON",
+          "icon": "resources/cells.png"
+        }
+      ]
+    },
+    "views": {
+      "tableify-json-sidebar": [
+        {
+          "id": "tableify-json-view",
+          "name": "JSON Table View",
+          "type": "webview"
+        }
+      ]
+    },
+    "commands": [
+      {
+        "command": "tableify-json.showSidebar",
+        "title": "Show JSON Table View"
+      }
+    ]
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run package",
+    "compile": "webpack",
+    "watch": "webpack --watch",
+    "package": "webpack --mode production --devtool hidden-source-map",
+    "compile-tests": "tsc -p . --outDir out",
+    "watch-tests": "tsc -p . -w --outDir out",
+    "pretest": "npm run compile-tests && npm run compile && npm run lint",
+    "lint": "eslint src",
+    "test": "vscode-test"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.90.0",
+    "@types/mocha": "^10.0.10",
+    "@types/node": "20.x",
+    "@typescript-eslint/eslint-plugin": "^8.22.0",
+    "@typescript-eslint/parser": "^8.22.0",
+    "eslint": "^9.19.0",
+    "typescript": "^5.7.3",
+    "ts-loader": "^9.5.2",
+    "webpack": "^5.97.1",
+    "webpack-cli": "^6.0.1",
+    "@vscode/test-cli": "^0.0.10",
+    "@vscode/test-electron": "^2.4.1"
+  }
+}
